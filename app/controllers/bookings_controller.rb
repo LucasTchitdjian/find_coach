@@ -19,9 +19,10 @@ class BookingsController < ApplicationController
     @booking.profesionnel = @profesionnel
     @booking.user = current_user
     if @booking.save
-      redirect_to profesionnels_path
+      redirect_to profesionnel_bookings_path(@profesionnel, @booking)
     else
       render 'new'
+    end
   end
 
   def edit

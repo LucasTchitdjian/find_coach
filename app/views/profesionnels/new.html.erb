@@ -1,2 +1,14 @@
-<h1>Profesionnels#new</h1>
-<p>Find me in app/views/profesionnels/new.html.erb</p>
+<h1>Creer un profesionnel</h1>
+<%= simple_form_for(@profesionnel) do |c| %>
+  <%= c.label :name %>
+  <%= c.text_field :name %>
+  <%= c.label :adress %>
+  <%= c.text_field :adress %>
+  <%= c.label :category %>
+  <%= c.text_field :category %>
+  <%= c.label :tarif %>
+  <%= c.text_field :tarif %>
+  <%= c.submit class:"btn btn-primary" %>
+<% end %>
+<br>
+<%= link_to "retour a l'index", profesionnels_path, class: "btn btn-primary"  %>

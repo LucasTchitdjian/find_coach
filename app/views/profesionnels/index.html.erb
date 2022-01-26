@@ -1,2 +1,14 @@
-<h1>Profesionnels#index</h1>
-<p>Find me in app/views/profesionnels/index.html.erb</p>
+<h1>Liste des coachs dispo</h1>
+<% @profesionnels.each do |profesionnel|   %>
+<p>nom:<%= profesionnel.name %><br> adresse: <%= profesionnel.adress %><br> category: <%= profesionnel.category %><br> prix: <%= profesionnel.tarif %>$</p>
+<%= link_to "Book this coach", new_profesionnel_booking_path(profesionnel, @booking), class:"btn btn-primary" %>
+<%= link_to "edit", edit_profesionnel_path(profesionnel), class:"btn btn-primary" %>
+<%= link_to "",
+            profesionnel_path(profesionnel),
+            method: :delete,
+            class: "fa fa-trash",
+            data: { confirm: "Are you sure?" } %>
+<% end %>
+<br>
+<br>
+<%= link_to "Create a profesionnel", new_profesionnel_path, class:"btn btn-primary" %>
