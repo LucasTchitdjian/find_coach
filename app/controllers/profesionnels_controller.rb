@@ -17,6 +17,7 @@ class ProfesionnelsController < ApplicationController
       redirect_to profesionnels_path
     else
       render 'new'
+    end
   end
 
   def edit
