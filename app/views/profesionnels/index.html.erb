@@ -1,6 +1,9 @@
 <h1>Liste des coachs dispo</h1>
 <% @profesionnels.each do |profesionnel|   %>
-<p>nom:<%= profesionnel.name %><br> adresse: <%= profesionnel.adress %><br> category: <%= profesionnel.category %><br> prix: <%= profesionnel.tarif %>$</p>
+<div class="container">
+<p><div class="name">nom:</div><%= profesionnel.name %><br><div class="adress"> adresse: </div><%= profesionnel.adress %><br><div class="category"> category: </div><%= profesionnel.category %><br> <div class="prix"> prix: </div> <%= profesionnel.tarif %>$</p>
+</div>
+<div class="btns">
 <%= link_to "Book this coach", new_profesionnel_booking_path(profesionnel, @booking), class:"btn btn-primary" %>
 <%= link_to "edit", edit_profesionnel_path(profesionnel), class:"btn btn-primary" %>
 <%= link_to "",
@@ -8,6 +11,7 @@
             method: :delete,
             class: "fa fa-trash",
             data: { confirm: "Are you sure?" } %>
+</div>
 <% end %>
 <br>
 <br>
