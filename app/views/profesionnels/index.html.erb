@@ -1,6 +1,6 @@
 <h1>Liste des coachs dispo</h1>
 <% @profesionnels.each do |profesionnel|   %>
-<div class="container">
+<div class="container-flexed">
   <div class="card-product">
     <% if profesionnel.photo.attached? %>
       <%= cl_image_tag profesionnel.photo.key, height: 300, width: 400, crop: :fill %>
@@ -19,9 +19,9 @@
             data: { confirm: "Are you sure?" } %>
         </div>
   </div>
+<%= link_to "Voir mes bookings",  profesionnel_bookings_path(profesionnel, @booking), class: "btn btn-flat" %> 
 <% end %>
 <br>
 <br>
 <%= link_to "Create a profesionnel", new_profesionnel_path, class:"btn btn-primary" %>
-
-
+<%= link_to "retour a l'index", root_path, class: "btn btn-primary"  %>

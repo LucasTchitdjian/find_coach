@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'profesionnels#index'
+  root to: 'pages#home'
   resources :profesionnels do 
     resources :bookings
   end
