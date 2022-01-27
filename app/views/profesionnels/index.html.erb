@@ -2,7 +2,11 @@
 <% @profesionnels.each do |profesionnel|   %>
 <div class="container">
   <div class="card-product">
-    <img src="https://blog.salonbodyfitness.com/wp-content/uploads/2019/11/shutterstock_493318507.jpg" />
+    <% if profesionnel.photo.attached? %>
+      <%= cl_image_tag profesionnel.photo.key, height: 300, width: 400, crop: :fill %>
+    <% else %>
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+    <% end %>
   </div>
     <div class="info"> <p>nom: <%= profesionnel.name %><br> adresse: <%= profesionnel.adress %><br> category: <%= profesionnel.category %><br> prix: <%= profesionnel.tarif %>$</p></div>
       <div class="btns">
@@ -19,3 +23,5 @@
 <br>
 <br>
 <%= link_to "Create a profesionnel", new_profesionnel_path, class:"btn btn-primary" %>
+
+
